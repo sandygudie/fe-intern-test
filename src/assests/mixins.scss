@@ -2,7 +2,7 @@
 $main-color: #23292f ;
 $secondary-color: #40454b ;
 $text-color: #ffffff;
-$error_color: red;;
+$error_color: #dc3545;
 
 // Media Queries Mixins
 @mixin max-width($arg) {

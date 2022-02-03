@@ -13,6 +13,9 @@
     background-color: $secondary-color;
     padding: 1.3em;
     border-radius: 7px;
+    h1 {
+      font-size: 25px;
+    }
     .form-group {
       font-size: 0.8rem;
       margin-top: 1.3em;
@@ -79,12 +82,13 @@
         input[type="checkbox"] {
           -webkit-appearance: none;
           appearance: none;
-          background-color: white;
+          background-color: $text-color;
           margin: 0;
+          padding: 0.3em;
           font: inherit;
           color: currentColor;
-          width: 1.15em;
-          height: 1.15em;
+          width: 15px;
+          height: 15px;
           border: 0.15em solid currentColor;
           border-radius: 0.15em;
           transform: translateY(-0.075em);
@@ -145,15 +149,15 @@
       a {
         color: #dee2e6db !important;
       }
+      .text-input-error {
+        border-color: $error_color;
+      }
+      .input-feedback {
+        color: $error_color;
+        text-align: right;
+        font-size: 13px;
+        font-weight: normal;
+      }
     }
-  }
-  .text-input-error {
-    border-color: $error_color;
-  }
-  .input-feedback {
-    color: $error_color;
-    text-align: right;
-    font-size: 13px;
-    font-weight: normal;
   }
 }

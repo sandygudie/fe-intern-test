@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
+import InputField from "../components/InputField";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Spinner from "../components/Spinner";
 import * as Yup from "yup";
@@ -73,24 +74,20 @@ const Login = () => {
             {({ handleSubmit, isSubmitting }) => (
               <Form onSubmit={handleSubmit}>
                 <div>
-                  <h3>Sign in</h3>
+                  <h1>Sign in</h1>
                 </div>
+
                 <div className="form-group">
-                  <Field
+                  <InputField
+                    type={"email"}
                     name="email"
-                    type="email"
                     className="form-control"
                     placeholder="Email address"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-danger"
                   />
                 </div>
 
                 <div className="form-group">
-                  <Field
+                  <InputField
                     name="password"
                     type={passwordShown ? "text" : "password"}
                     className="form-control"
@@ -103,24 +100,17 @@ const Login = () => {
                       <FiEye className="visibility" />
                     )}
                   </div>
-
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="text-danger"
-                  />
                 </div>
-
                 <div className="form-group ">
                   <div className="form_check">
-                    <Field
-                      name="acceptTerms"
+                    <InputField
+                      name="checkbox"
                       type="checkbox"
                       className="form-check-input"
                       checked={checked}
                       onChange={(e) => setChecked(e.target.checked)}
                     />
-                    <label htmlFor="acceptTerms" className="form-check-label">
+                    <label htmlFor="checkbox" className="form-check-label">
                       Remember me
                     </label>
                   </div>
