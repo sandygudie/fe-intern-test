@@ -59,6 +59,9 @@ header {
             color: $text-color;
             &:hover {
               color: gray;
+              @include min-width(991px) {
+                color: gray;
+              }
             }
           }
         }
@@ -91,7 +94,7 @@ header {
     width: 20%;
   }
   a {
-    color: #dee2e6db;
+    color: #dee2e6db !important;
     text-decoration: underline !important;
   }
 }
