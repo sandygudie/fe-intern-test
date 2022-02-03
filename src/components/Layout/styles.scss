@@ -54,6 +54,9 @@ header {
               animation-fill-mode: forwards;
             }
           }
+          .nav-link{
+            color:$text-color;
+          }
         }
         // transition
         @keyframes topToBottom {
@@ -80,11 +83,13 @@ header {
 .footer_container {
   width: 100%;
   font-size: 13px;
+  color:#dee2e6db !important;
   @include min-width(991px) {
     width: 20%;
    
   }
   a {
+  
     text-decoration: underline !important;
   }
 }
