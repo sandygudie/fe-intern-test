@@ -76,7 +76,6 @@ const Login = () => {
                 <div>
                   <h1>Sign in</h1>
                 </div>
-
                 <div className="form-group">
                   <InputField
                     type={"email"}
@@ -85,7 +84,6 @@ const Login = () => {
                     placeholder="Email address"
                   />
                 </div>
-
                 <div className="form-group">
                   <InputField
                     name="password"
