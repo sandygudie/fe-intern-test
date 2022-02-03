@@ -2,6 +2,7 @@
   "name": "fe-intern-test",
   "version": "0.1.0",
   "private": true,
+  
   "dependencies": {
     "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11.7.1",
