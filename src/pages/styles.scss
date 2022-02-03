@@ -121,3 +121,18 @@
     font-weight: normal;
   }
 }
+.display{
+
+  .sucesss_message{
+background-color: rgb(109, 223, 109);
+padding:1em !important;
+
+  }
+  .error_message{
+    background-color: $error_color;
+    padding:0.5em 0.3em !important;
+    border-radius: 0.5em;
+    
+      }
+
+}

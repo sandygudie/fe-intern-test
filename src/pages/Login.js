@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+// import { RiLoginBoxFill } from "react-icons/ri";
+// import { MdOutlineError } from "react-icons/md";
 import Spinner from "../components/Spinner";
 import * as Yup from "yup";
 import "./styles.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [passwordShown, setPasswordShown] = useState(false);
+
   const [checked, setChecked] = useState(true);
 
   const togglePasswordVisiblity = () => {
@@ -25,6 +30,9 @@ const Login = () => {
 
   const handleSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
+    return new Promise((resolve, reject) => {
+      resolve(JSON.stringify(data, null, 2));
+    });
   };
 
   const initialValues = {
@@ -33,91 +41,112 @@ const Login = () => {
   };
 
   return (
-    <div className="login__container">
-      <div className="login__form">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            handleSubmit(values);
-            setTimeout(() => {
-              setSubmitting(false);
-            }, 4000);
-          }}
-        >
-          {({ handleSubmit, isSubmitting }) => (
-            <Form onSubmit={handleSubmit}>
-              <div>
-                <h3>Sign in</h3>
-              </div>
-              <div className="form-group">
-                <Field
-                  name="email"
-                  type="email"
-                  className="form-control"
-                  placeholder="Email address"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-danger"
-                />
-              </div>
+    <>
+      <div className="login__container">
+        <div className="login__form">
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                handleSubmit(values)
+                  .then((res) => {
+                    // setStatus({ type: 'success' });
+                    toast.success("Login Successful", {
+                      position: toast.POSITION.BOTTOM_LEFT,
+                      autoClose: 4000,
+                    });
+                  })
+                  .catch((error) => {
+                    toast.warning("Error", {
+                      position: toast.POSITION.BOTTOM_LEFT,
+                      autoClose: 10000,
+                    });
+                    // setStatus({ type: 'error', error });
+                  });
+                setSubmitting(false);
+              }, 4000);
+            }}
+          >
+            {({ handleSubmit, isSubmitting }) => (
+              <Form onSubmit={handleSubmit}>
+                <div>
+                  <h3>Sign in</h3>
+                </div>
+                <div className="form-group">
+                  <Field
+                    name="email"
+                    type="email"
+                    className="form-control"
+                    placeholder="Email address"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-danger"
+                  />
+                </div>
 
-              <div className="form-group">
-                <Field
-                  name="password"
-                  type={passwordShown ? "text" : "password"}
-                  className="form-control"
-                  placeholder="Password"
-                />
-                <div onClick={togglePasswordVisiblity}>
-                  {passwordShown ? (
-                    <FiEyeOff className="visibility" />
+                <div className="form-group">
+                  <Field
+                    name="password"
+                    type={passwordShown ? "text" : "password"}
+                    className="form-control"
+                    placeholder="Password"
+                  />
+                  <div onClick={togglePasswordVisiblity}>
+                    {passwordShown ? (
+                      <FiEyeOff className="visibility" />
+                    ) : (
+                      <FiEye className="visibility" />
+                    )}
+                  </div>
+
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="text-danger"
+                  />
+                </div>
+
+                <div className="form-group ">
+                  <div className="form_check">
+                    <Field
+                      name="acceptTerms"
+                      type="checkbox"
+                      className="form-check-input"
+                      checked={checked}
+                      onChange={(e) => setChecked(e.target.checked)}
+                    />
+                    <label htmlFor="acceptTerms" className="form-check-label">
+                      Remember me
+                    </label>
+                  </div>
+                </div>
+                <div className="form-group">
+                  {isSubmitting ? (
+                    <Spinner height={50} width={80} color="white" />
                   ) : (
-                    <FiEye className="visibility" />
+                    <button type="submit" className="login__btn ">
+                      SIGN IN
+                    </button>
                   )}
                 </div>
-
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="text-danger"
-                />
-              </div>
-
-              <div className="form-group ">
-                <div className="form_check">
-                <Field
-                  name="acceptTerms"
-                  type="checkbox"
-                  className="form-check-input"
-                  checked={checked}
-                  onChange={(e) => setChecked(e.target.checked)}
-                />
-                <label htmlFor="acceptTerms" className="form-check-label">
-                  Remember me
-                </label>
+                <div className="form-group">
+                  <a href="/">I forgot my password</a>
                 </div>
-               
-              </div>
-              <div className="form-group">
-                {isSubmitting ? (
-                  <Spinner height={50} width={80} color="white" />
-                ) : (
-                  <button type="submit" className="login__btn ">
-                    SIGN IN
-                  </button>
-                )}
-              </div>
-              <div className="form-group">
-                <a href="/">I forgot my password</a>
-              </div>
-            </Form>
-          )}
-        </Formik>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
-    </div>
+      <div className="display">
+        {/* {status?.type === 'success' && <p className="sucesss_message"> Login Successful! <RiLoginBoxFill/></p>}
+     {status?.type === 'error' && (
+       <p className="error_message">Error  <MdOutlineError/></p>
+     )} */}
+      </div>
+    </>
   );
 };
 
