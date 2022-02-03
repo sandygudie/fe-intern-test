@@ -7,7 +7,6 @@ import Login from "./pages/Login";
 const App = () => {
   return (
     <Layout>
-
       <Login />
     </Layout>
   );
