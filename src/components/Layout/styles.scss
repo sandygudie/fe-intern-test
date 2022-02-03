@@ -60,7 +60,7 @@ header {
             &:hover {
               color: gray;
               @include min-width(991px) {
-                color: gray;
+                color: gray !important;
               }
             }
           }
