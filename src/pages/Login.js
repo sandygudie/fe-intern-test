@@ -68,7 +68,7 @@ const Login = () => {
                     });
                   });
                 setSubmitting(false);
-              }, 4000);
+              }, 2000);
             }}
           >
             {({ handleSubmit, isSubmitting }) => (
