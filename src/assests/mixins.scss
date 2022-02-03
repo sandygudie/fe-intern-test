@@ -1,8 +1,9 @@
 // Colors Mixins
-$main-color: #23292f ;
-$secondary-color: #40454b ;
+$main-color: #23292f;
+$secondary-color: #40454b;
 $text-color: #ffffff;
 $error_color: #dc3545;
+$gray_color: gray;
 
 // Media Queries Mixins
 @mixin max-width($arg) {

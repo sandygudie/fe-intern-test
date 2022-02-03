@@ -54,7 +54,7 @@ const Login = () => {
                       title: "Login Successful!",
                       status: "success",
                       position: "top",
-                      duration: 9000,
+                      duration: 3000,
                       isClosable: true,
                     });
                   })
@@ -63,7 +63,7 @@ const Login = () => {
                       title: "Error.",
                       description: "Try Again.",
                       status: "error",
-                      duration: 9000,
+                      duration: 3000,
                       isClosable: true,
                     });
                   });

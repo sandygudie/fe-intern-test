@@ -31,16 +31,12 @@ li {
   padding: 0 !important;
   margin: 0 !important;
 }
-
 a {
   text-decoration: none !important;
-  color: $text-color !important;
-
   &:hover {
     text-decoration: none;
   }
 }
-
 ul,
 li {
   list-style: none;

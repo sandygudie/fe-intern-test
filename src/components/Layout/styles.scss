@@ -58,9 +58,9 @@ header {
           .nav-link {
             color: $text-color;
             &:hover {
-              color: gray;
+              color: $gray_color;
               @include min-width(991px) {
-                color: gray !important;
+                color: $gray_color;
               }
             }
           }
