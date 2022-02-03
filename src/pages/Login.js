@@ -95,9 +95,9 @@ const Login = () => {
                   />
                   <div onClick={togglePasswordVisiblity}>
                     {passwordShown ? (
-                      <FiEyeOff className="visibility" />
-                    ) : (
                       <FiEye className="visibility" />
+                    ) : (
+                      <FiEyeOff className="visibility" />
                     )}
                   </div>
                 </div>

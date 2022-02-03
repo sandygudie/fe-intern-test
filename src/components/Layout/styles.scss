@@ -15,7 +15,7 @@ header {
         width: 35%;
       }
     }
-    .dropdown  {
+    .dropdown {
       display: none;
       @include min-width(800px) {
         display: block;
@@ -54,8 +54,8 @@ header {
               animation-fill-mode: forwards;
             }
           }
-          .nav-link{
-            color:$text-color;
+          .nav-link {
+            color: $text-color;
           }
         }
         // transition
@@ -83,13 +83,11 @@ header {
 .footer_container {
   width: 100%;
   font-size: 13px;
-  color:#dee2e6db !important;
+  color: #dee2e6db !important;
   @include min-width(991px) {
     width: 20%;
-   
   }
   a {
-  
     text-decoration: underline !important;
   }
 }
