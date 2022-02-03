@@ -1,0 +1,90 @@
+@import "../../assests/mixins.scss";
+
+header {
+  padding-top: 2em;
+  position: relative;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 0em;
+    .img-logo {
+      width: 40%;
+      @include min-width(800px) {
+        width: 35%;
+      }
+    }
+    .dropdown  {
+      display: none;
+      @include min-width(800px) {
+        display: block;
+      }
+    }
+    .toggler {
+      display: block;
+      @include min-width(800px) {
+        display: none;
+      }
+    }
+    .navbar__right {
+      position: absolute;
+      top: 2.5rem;
+      right: 0;
+      background-color: $secondary-color;
+      width: 100%;
+      z-index: 1;
+      @include min-width(800px) {
+        width: auto;
+        background-color: transparent;
+        position: unset;
+      }
+      ul {
+        padding: 0 !important;
+        display: block;
+        .nav-item {
+          opacity: 0;
+          transform-origin: top center;
+          @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+              animation-name: topToBottom;
+              animation-duration: 400ms;
+              animation-delay: (150ms * $i) - 300;
+              animation-timing-function: ease-in-out;
+              animation-fill-mode: forwards;
+            }
+          }
+        }
+        // transition
+        @keyframes topToBottom {
+          0% {
+            opacity: 0;
+            transform: rotateX(-90deg);
+          }
+          100% {
+            opacity: 1;
+            transform: rotateX(0deg);
+          }
+        }
+        @include min-width(800px) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+.footer_container {
+  width: 100%;
+  font-size: 13px;
+  @include min-width(991px) {
+    width: 20%;
+   
+  }
+  a {
+    text-decoration: underline !important;
+  }
+}
