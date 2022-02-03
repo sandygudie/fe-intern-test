@@ -13,7 +13,6 @@ function Header() {
         <Link to="/" className="logo">
           <img src={logo} className="img-logo" alt="logo" />
         </Link>
-
         <span
           className="toggler"
           onClick={() => {
