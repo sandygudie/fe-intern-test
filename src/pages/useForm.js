@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useToast } from "@chakra-ui/react";
 
 const useForm = (callback, validate) => {
@@ -6,8 +6,6 @@ const useForm = (callback, validate) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
- 
-  
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
@@ -17,36 +15,31 @@ const useForm = (callback, validate) => {
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-    if(validate(values).email ||validate(values).password){
-  setIsSubmitting(false)
-
-    }else{
-       setIsSubmitting(true);
-     setTimeout(() => {
-        
-    
+    if (validate(values).email || validate(values).password) {
       setIsSubmitting(false);
-       toast({
-                      title: "Login Successful!",
-                      status: "success",
-                      position: "top",
-                      duration: 3000,
-                      isClosable: true,
-                    });
-      
-    
-}, 5000)
-
+    } else {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        toast({
+          title: "Login Successful!",
+          status: "success",
+          position: "top",
+          duration: 3000,
+          isClosable: true,
+        });
+      }, 5000);
     }
-   
-    setErrors(validate(values));
 
-    
-  }
+    setErrors(validate(values));
+  };
 
   const handleChange = (event) => {
     event.persist();
-    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+    setValues((values) => ({
+      ...values,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   return {
@@ -54,9 +47,8 @@ const useForm = (callback, validate) => {
     handleSubmit,
     values,
     errors,
-    isSubmitting
-  
-  }
+    isSubmitting,
+  };
 };
 
 export default useForm;

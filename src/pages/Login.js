@@ -31,7 +31,9 @@ const Form = () => {
         <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <input
-              className="form-control"
+              className={`form-control  ${
+                errors.email ? "text-input-error" : ""
+              } `}
               placeholder="Email address"
               type="email"
               name="email"
@@ -44,7 +46,9 @@ const Form = () => {
 
           <div className="form-group">
             <input
-              className="form-control"
+              className={`form-control  ${
+                errors.password ? "text-input-error" : ""
+              } `}
               placeholder="Password"
               type={passwordShown ? "text" : "password"}
               name="password"

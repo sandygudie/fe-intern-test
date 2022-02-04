@@ -151,10 +151,10 @@
       a {
         color: #dee2e6db !important;
       }
-      // .text-input-error {
-      //   border-color: $error_color;
-      //   border: 1px solid #dc3545;
-      // }
+      .text-input-error {
+        border-color: $error_color;
+        border: 1px solid #dc3545;
+      }
       .is-danger {
         color: $error_color;
         font-size: 13px;
