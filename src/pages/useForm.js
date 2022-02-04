@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
-const useForm = (callback, validate) => {
+const useForm = (validate) => {
   const toast = useToast();
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
-    }
-  }, [errors]);
+  // useEffect(() => {
+  //   if (Object.keys(errors).length === 0 && isSubmitting) {
+  //     callback();
+  //   }
+  // }, [errors]);
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();

@@ -9,14 +9,8 @@ const Form = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [checked, setChecked] = useState(true);
 
-  const { values, errors, handleChange, handleSubmit, isSubmitting } = useForm(
-    login,
-    validate
-  );
-
-  function login() {
-    console.log("No errors, submit callback called!");
-  }
+  const { values, errors, handleChange, handleSubmit, isSubmitting } =
+    useForm(validate);
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
