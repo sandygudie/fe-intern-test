@@ -7,6 +7,7 @@ import "./styles.scss";
 
 function Header() {
   const [showNav, setShowNav] = useState(true);
+  
   return (
     <header>
       <nav className="navbar">
