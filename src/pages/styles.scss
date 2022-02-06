@@ -8,7 +8,7 @@
   border-radius: 7px;
   @include min-width(800px) {
     margin: 5em 0em 7em 0em;
-    width: 40%;
+    width: 40%!important;
   }
   .login__form {
     background-color: $secondary-color;
